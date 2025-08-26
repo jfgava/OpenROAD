@@ -175,7 +175,7 @@ void FastRouteCore::routeLAll(const bool firstTime)
     for (const int netID : net_ids_) {
       for (auto& seg : seglist_[netID]) {
         // no need to reroute the H or V segs
-        if (seg.x1 != seg.x2 || seg.y1 != seg.y2) {
+        if (seg.x1 != seg.x2 && seg.y1 != seg.y2) {
           routeSegLFirstTime(&seg);
         }
       }
@@ -184,7 +184,7 @@ void FastRouteCore::routeLAll(const bool firstTime)
     for (const int netID : net_ids_) {
       for (auto& seg : seglist_[netID]) {
         // no need to reroute the H or V segs
-        if (seg.x1 != seg.x2 || seg.y1 != seg.y2) {
+        if (seg.x1 != seg.x2 && seg.y1 != seg.y2) {
           ripupSegL(&seg);
           routeSegL(&seg);
         }
